@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .link-underline {
+    @apply relative inline-block overflow-hidden font-genos
+    after:absolute after:bottom-3 after:left-0 after:h-[2px] after:w-full after:-translate-x-full
+    after:bg-white after:transition-transform after:duration-300 after:ease-in-out hover:after:translate-x-0;
+  }
+  .section-dark {
+    @apply relative h-screen min-h-[700px] overflow-hidden bg-dark text-white;
+  }
+  .section-light {
+    @apply relative h-screen min-h-[700px] overflow-hidden bg-white text-dark;
+  }
+  .heading-underline {
+    @apply after:absolute after:-bottom-5 after:left-0 after:h-[1px] after:w-full;
+  }
+  .text-error {
+    @apply absolute  bottom-0 text-[10px] text-danger;
+  }
+}
+
+@layer utilities {
+  .container {
+    position: relative;
+    margin-inline: auto;
+    width: calc(100vw - 48px);
+    @media (min-width: 540px) {
+      max-width: none;
+    }
+    @media (min-width: 768px) {
+      max-width: 1320px;
+      width: calc(100vw - 100px);
+    }
+  }
+}
+
+// global styles
+
+body {
+  font-family: var(--font-inter);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-genos);
+    line-height: 0.8;
+  }
+  p {
+    font-weight: 400;
+  }
+}
+
+.swiper {
+  height: 100%;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: scale(1);
+}
+.fade-exit {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: scale(1);
+}
+.fade-enter-done {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.fade-enter-active,
+.fade-exit-active {
+  transition:
+    opacity 300ms ease-in-out 0ms,
+    transform 400ms ease-in-out 0ms;
+}
+
+.scroll-down {
+  -webkit-animation: scrollDown ease-in-out 2s infinite;
+  -moz-animation: scrollDown ease-in-out 2s infinite;
+  animation: scrollDown ease-in-out 2s infinite;
+
+  @keyframes scrollDown {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      top: 0;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+}
